@@ -1,0 +1,11 @@
+id,nome,idade,email,cidade,salario
+1,Ana Souza,28,ana@email.com,Campinas,4500
+2,Bruno Lima,34,bruno@email.com,Jundiaí,5200
+3,Carla Dias,,carla@email.com,Campinas,4800
+4,Diego Alves,41,diego@email,São Paulo,6100
+5,Elisa Costa,29,elisa@email.com,,4300
+6,Bruno Lima,34,bruno@email.com,Jundiaí,5200
+7,Fábio Rocha,230,fabio@email.com,Campinas,5000
+8,Gabi Nunes,31,gabi@email.com,Valinhos,98000
+9,Hugo Melo,27,,Campinas,4100
+10,Iara Reis,38,iara@email.com,Jundiaí,5500
