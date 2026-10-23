@@ -23,5 +23,25 @@ services:
     ports:
       - "5000:5000"
 
+  processamento:
+    build: ./servico-processamento
+    environment:
+      DADOS_URL: http://dados:5000
+    depends_on:
+      - dados
+    ports:
+      - "5001:5001"
+
+  relatorio:
+    build: ./servico-relatorio
+    environment:
+      DADOS_URL: http://dados:5000
+      PROCESSAMENTO_URL: http://processamento:5001
+    depends_on:
+      - dados
+      - processamento
+    ports:
+      - "8000:8000"
+
 volumes:
   dbdata:

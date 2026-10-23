@@ -4,6 +4,7 @@ import os
 import time
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi.responses import RedirectResponse  # NOVO
 from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, create_engine, func
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.exc import OperationalError
@@ -40,6 +41,18 @@ for _ in range(10):
         time.sleep(2)
 
 app = FastAPI(title="Serviço de Dados")
+
+
+# NOVO: mostra o link correto no terminal ao iniciar
+@app.on_event("startup")
+def mostrar_link():
+    print("Documentação: http://localhost:5000/docs", flush=True)
+
+
+# NOVO: a raiz redireciona para a documentação
+@app.get("/", include_in_schema=False)
+def raiz():
+    return RedirectResponse("/docs")
 
 
 @app.get("/health")
